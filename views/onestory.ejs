@@ -1,0 +1,39 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view the story</title>
+    <style>
+  .card{
+    width:500px;
+    height:300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+    </style>
+</head>
+<body>
+    <div class="card w-75 mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= story.title %></h5>
+          <p class="card-text"><%= story.content %></p>
+          <p class="card-text">posted by:<b><%= user.username %></b></p>
+          <p class="card-text"><b><%= story.publishedAt %></b></p>
+
+          <form action="/stories/<%= story._id %>/edit" method="get"><button class="btn btn-warning">edit</button></form>
+          <form action="/stories/<%= story._id %>/delete?_method=delete" method="post">
+            <button class="btn btn-danger">delete</button>
+          </form>
+          
+          
+        </div>
+      </div>
+      
+      
+</body>
+</html>

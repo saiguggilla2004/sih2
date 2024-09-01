@@ -1,0 +1,28 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>create the new post</h2>
+    <form action="/users/<%= currentUser._id%>/newpost" method="post">
+       <div class="mb-3">
+        <input class="form-control" type="text" placeholder="enter the title:" name="title">
+       </div>
+
+       <!-- <div class="mb-3">
+        <input class="form-control" type="text" placeholder="enter the content:" name="content">
+       </div> -->
+       <div class="mb-3">
+        <textarea name="content" id="content" class="form-control" placeholder="enter the content"></textarea>
+       </div>
+        
+        <div class="mb-3"><input type="text" class="form-control" placeholder="Image" name="img"></div>
+       
+    <div class="mb-3">    <button class="btn btn-primary">submit</button></div>
+    </form>
+</body>
+</html>

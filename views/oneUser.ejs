@@ -1,0 +1,117 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= user.username %> - Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            
+
+        }
+
+        .user-detail-container {
+            max-width: 900px;
+            width: 100%;
+            margin-top: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .user-detail-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+
+        .user-detail-header img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .user-detail-header h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .user-detail-content {
+            width: 100%;
+        }
+
+        .user-detail-content p {
+            font-size: 1rem;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .user-detail-content h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-top: 20px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+
+        .user-detail-content .section {
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-detail-container">
+        <div class="user-detail-header">
+            <img src="<%= user.profilePicture %>" alt="<%= user.username %> profile picture">
+            <h1><%= user.username %></h1>
+        </div>
+        <div class="user-detail-content">
+            <div class="section">
+                <h2>Bio</h2>
+                <p><%= user.bio %></p>
+            </div>
+            <div class="section">
+                <h2>Details</h2>
+                <p><strong>mail ID:</strong> <%= user.email %></p>
+                <p><strong>Graduation Year:</strong> <%= user.graduationYear %></p>
+                <p><strong>Field of Study:</strong> <%= user.fieldOfStudy %></p>
+                <p><strong>Industry:</strong> <%= user.industry %></p>
+                <p><strong>Location:</strong> <%= user.location %></p>
+                <p><strong>Date Joined:</strong> <%= user.dateJoined.toDateString() %></p>
+            </div>
+        </div>
+        <a href="/users" class="back-link">Back to all users</a>
+    </div>
+</body>
+</html>

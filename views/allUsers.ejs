@@ -1,0 +1,89 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Space between cards */
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+            width: 18rem; /* Fixed width for each card */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: auto;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>Alumni Network</h2>
+    <div class="card-container">
+        <% for (const user of users) { %>
+            <div class="card">
+                <img class="card-img-top" src="<%= user.profilePicture %>" alt="<%= user.username %> profile picture">
+                <div class="card-body">
+                  <h5 class="card-title"><%= user.username %></h5>
+                  <p class="card-text"><%= user.bio %></p>
+                </div>
+                <div class="card-body">
+                <form action="/users/<%=user._id %>" method="get">
+                    <button class="btn btn-primary">view more</button>
+                </form>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a New Job</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 40px;
+            color: #333;
+        }
+        
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-label {
+            font-weight: bold;
+            color: #007BFF;
+        }
+        
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #007BFF;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        
+        .btn-primary {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        
+        .mb-3 {
+            margin-bottom: 20px;
+        }
+        
+        .mb-3:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <form action="/jobs/new" method="post">
+       <div class="mb-3">
+            <label for="title" class="form-label">Enter the Title of the Job:</label>
+            <input type="text" id="title" name="title" class="form-control">
+       </div>
+       <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea id="description" name="description" class="form-control" rows="4"></textarea>
+       </div>
+       <div class="mb-3">
+            <label for="location" class="form-label">Enter the Location:</label>
+            <input type="text" id="location" name="location" class="form-control">
+       </div>
+       <div class="mb-3">
+            <label for="experience" class="form-label">Experience (in years):</label>
+            <input type="number" id="experience" name="experience" class="form-control">
+       </div>
+       <div class="mb-3">
+            <label for="company" class="form-label">Company:</label>
+            <input type="text" id="company" name="company" class="form-control">
+       </div>
+       <div class="mb-3">
+            <label for="link" class="form-label">Apply Link:</label>
+            <input type="url" id="link" name="link" class="form-control">
+       </div>
+       <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style2.css">
+</head>
+<body>
+  <%=success %>
+  <%= error %>
+    <%  for(let story of stories) { %>
+        <div class="card mb-3" style="width: 18rem;">
+            
+            <div class="card-body">
+              <h5 class="card-title"><%= story.title %></h5>
+              <p class="card-text"><%= story.content %></p>
+              <p class="card-text"><%= story.publishedAt %></p>
+              <form action="/stories/<%= story._id %>" method="get">
+                <button class="btn btn-primary">
+                    see more
+                </button>
+              </form>
+            </div>
+          </div>
+       <% } %>
+</body>
+
+

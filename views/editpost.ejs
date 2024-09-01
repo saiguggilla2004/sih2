@@ -1,0 +1,26 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit the post</title>
+</head>
+<body>
+    <form action="/users/<%=post._id%>/editpost?_method=patch" method="post">
+       <div class="mb-3">
+        <label for="title" class="form-label">title:</label>
+        <input type="text" name="title" class="form-control" id="title" value="<%=post.title%>">
+       </div>
+       <div class="mb-3">
+        <label for="content" class="form-label">content:</label>
+        <textarea type="text" name="content" class="form-control" id="content"><%=post.title%></textarea>
+       </div>
+       <div class="mb-3">
+        <label for="content" class="form-label">content:</label>
+        <textarea type="text" name="img" class="form-control" id="img"><%=post.img%></textarea>
+       </div>
+       <button class="btn btn-primary">edit</button>
+    </form>
+</body>
+</html>

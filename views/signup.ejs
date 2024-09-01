@@ -1,0 +1,58 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <div class="row mt-3">
+        <h2>sign up form</h2>
+        <div class="col-6 offset-3">
+            <form action="/signup" method="post" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username:</label>
+                <input type="text" id="username" name="username" class="form-control" required>
+                </div>
+                <div class="mb-3"> 
+                    <label for="email" name="email" class="form-label">Email:</label>
+                    <input type="text" name="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3"> 
+                    <label for="graduationYear" name="graduationYear" class="form-label">graduation Year:</label>
+                    <input type="number" name="graduationYear" class="form-control" id="graduationYear" required>
+                </div>
+                <div class="mb-3"> 
+                    <label for="fieldOfStudy" name="fieldOfStudy" class="form-label">field Of Study:</label>
+                    <input type="text" name="fieldOfStudy" class="form-control" id="fieldOfStudy" required>
+                </div>
+                <div class="mb-3"> 
+                    <label for="industry" name="industry" class="form-label">industry:</label>
+                    <input type="text" name="industry" class="form-control" id="industry" >
+                </div>
+                <div class="mb-3"> 
+                    <label for="location" name="location" class="form-label">location:</label>
+                    <input type="text" name="location" class="form-control" id="location" required>
+                </div>
+
+                <div class="mb-3"> 
+                    <label for="profilePicture" name="profilePicture" class="form-label">profile Picture:</label>
+                    <input type="text" name="profilePicture" class="form-control" id="profilePicture" >
+                </div>
+                <div class="mb-3"> 
+                    <label for="bio" name="bio" class="form-label">Bio:</label>
+                    <input type="text" name="bio" class="form-control" id="bio" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">password:</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+                <div class="mb-3"><button class="btn btn-primary" >SignUp</button></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

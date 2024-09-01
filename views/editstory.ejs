@@ -1,0 +1,27 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit the story</title>
+</head>
+<body>
+    <form action="/stories/<%= story._id %>/edit?_method=PATCH" method="post">
+        
+            <div class="mb-3">
+              <label for="" class="form-label"  ></label>
+              <input type="text" name="title" class="form-control" id="" aria-describedby="" value="<%= story.title%>">
+              <div id="" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">content</label>
+             
+               <textarea name="content" id="" class="form-control"><%= story.content%>"</textarea>
+            </div>
+            
+            <button class="btn btn-primary">submit</button>
+          
+    </form>
+</body>
+</html>

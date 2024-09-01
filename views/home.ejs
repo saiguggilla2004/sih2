@@ -1,0 +1,118 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Your Website Name</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .hero-section {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .hero-section h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .hero-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .hero-section a {
+            background-color: #fff;
+            color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .hero-section a:hover {
+            background-color: #f4f4f4;
+        }
+        .recent-posts {
+            margin-bottom: 30px;
+        }
+        .recent-posts h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .post-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .post-card img {
+            width: 100%;
+            height: auto;
+        }
+        .post-content {
+            padding: 20px;
+        }
+        .post-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+            text-decoration: none;
+        }
+        .post-title:hover {
+            color: #007BFF;
+        }
+        .post-excerpt {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .post-meta {
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1>Welcome to Your Website Name</h1>
+            <p>Your one-stop destination for [Your Site's Purpose - e.g., connecting alumni, sharing success stories, etc.].</p>
+            <a href="/about">Learn More About Us</a>
+        </div>
+
+        <!-- Recent Posts Section -->
+        <div class="recent-posts">
+            <h2>Recent Posts</h2>
+            <% posts.forEach(function(post) { %>
+                <div class="post-card">
+                    <a href="/posts/<%= post._id %>">
+                        <% if (post.img) { %>
+                            <img src="<%= post.img %>" alt="Post Image">
+                        <% } %>
+                        <div class="post-content">
+                            <div class="post-title"><%= post.title %></div>
+                            <div class="post-excerpt"><%= post.content.substring(0, 150) %>...</div>
+                            <div class="post-meta">Posted by <%= post.userId.username %> on <%= post.postedAt.toDateString() %></div>
+                        </div>
+                    </a>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>

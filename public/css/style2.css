@@ -1,0 +1,43 @@
+/* Ensure that the body and html take up full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container for card rows */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribute space between items */
+    gap: 1rem; /* Space between the cards */
+    padding: 1rem;
+  }
+  
+  /* Individual card styling */
+  .card-item {
+    flex: 1 1 calc(33.333% - 1rem); /* Three cards per row, adjusting for gap */
+    box-sizing: border-box;
+    margin-bottom: 1rem; /* Space between rows of cards */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .card-item {
+      flex: 1 1 calc(50% - 1rem); /* Two cards per row for tablets */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .card-item {
+      flex: 1 1 100%; /* One card per row for mobile */
+    }
+  }
+  
+  /* Optional: Ensure cards don't exceed their container */
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  

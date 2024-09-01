@@ -1,0 +1,83 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .job-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0;
+            list-style-type: none;
+        }
+        .job-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        .job-card:hover {
+            transform: translateY(-10px);
+        }
+        .job-card h2 {
+            margin-top: 0;
+            color: #007BFF;
+        }
+        .job-card p {
+            color: #555;
+            margin: 10px 0;
+        }
+        .job-card p strong {
+            color: #333;
+        }
+        .apply-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        .apply-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Job Listings</h1>
+    <ul class="job-list">
+        <% jobs.forEach(job => { %>
+            <li class="job-card">
+                <h2><%= job.title %></h2>
+                <p><strong>Company:</strong> <%= job.company %></p>
+                <p><strong>Location:</strong> <%= job.location %></p>
+                <p><strong>Description:</strong> <%= job.description %></p>
+                <p><strong>Experience Required:</strong> <%= job.experience %> years</p>
+                <p><strong>Date Posted:</strong> <%= job.postedAt.toDateString() %></p>
+                <a href="<%= job.link %>" class="apply-btn">Apply Now</a>  <form action="/jobs/<%= job._id %>?_method=delete" method="post">
+                  <% if(job.userId.toString()===currentUser._id.toString()){ %>
+                    <button class="btn btn-danger apply-btn">delete</button>
+                 <%  } %> 
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
